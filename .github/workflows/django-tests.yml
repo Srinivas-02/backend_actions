@@ -40,10 +40,13 @@ jobs:
     - name: Run Tests
       env:
         DJANGO_SETTINGS_MODULE: pos.test_settings
-        DB_NAME: pos_test_db
-        DB_USER: postgres
-        DB_PASSWORD: postgres
-        DB_HOST: localhost
-        DB_PORT: 5432
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        DATABASE_HOST: localhost
+        DATABASE_PORT: 5432
+        POSTGRES_DB: pos_test_db
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        DEBUG: "1"
+        ALLOWED_HOSTS: "*"
       run: |
         python manage.py test pos.tests.test_suite --settings=pos.test_settings

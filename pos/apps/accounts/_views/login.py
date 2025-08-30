@@ -13,7 +13,7 @@ User = get_user_model()
 class LocationLoginView(APIView):
     """First step for staff - verify location credentials"""
     permission_classes = [AllowAny]
-    
+    authentication_classes = []  # Disable authentication for this view
     def post(self, request):
         location_name = request.data.get('location_name')
         location_password = request.data.get('location_password')
@@ -43,7 +43,7 @@ class LocationLoginView(APIView):
 class UserLoginView(APIView):
     """Handles both staff and admin logins"""
     permission_classes = [AllowAny]
-    
+    authentication_classes = []  # Disable authentication for this view
     def get_tokens_for_user(self, user):
         refresh = RefreshToken.for_user(user)
         return {
