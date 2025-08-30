@@ -4,10 +4,10 @@ from .settings import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pos_db',
-        'USER': 'pos_user',
-        'PASSWORD': 'pos_password',
-        'HOST': 'localhost',  # Connect to the exposed Docker container
+        'NAME': 'pos_test_db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
