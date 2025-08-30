@@ -1,0 +1,20 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>{% blocktrans %}Dear {{ first_name }},{% endblocktrans %}</p>
+
+    <p>
+      {# Use “blocktrans with” so you can insert a `login_url` variable #}
+      {% blocktrans with url=login_url %}
+        Welcome to Sip n Snack! Your franchise admin account has been created. 
+        You can <a href="{{ url }}">click here to sign in to your account</a>.
+      {% endblocktrans %}
+    </p>
+
+    <p>
+      {% blocktrans %}Warm regards,{% endblocktrans %}<br>
+      The Sip n Snack Team
+    </p>
+  </body>
+</html>
